@@ -130,12 +130,12 @@ display: inline-block;
     <span class="withflash" id="phototrigger" ><a href="javascript://" id="capture">Photo</a></span>
 		<div><span class="inline"><span class="buttonblock"><input name="second" type="submit" value="Search by Drawing" class="button" id='search'></span></span></div>
 		<!-- picture --->
-		<div class="container">
-    <object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="320" height="240">
+		<div class="container" class="withflash">
+    <object  class="withflash" id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="320" height="240">
   		<param name="movie" value="camcanvas.swf" />
   		<param name="quality" value="high" />
 		<param name="allowScriptAccess" value="always" />
-  		<embed  allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="320" height="240" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />
+  		<embed  class="withflash" allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="320" height="240" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />
     </object>
     </div>
     <!--picture end--->
@@ -408,6 +408,18 @@ $('#capture').click( ->
   initCanvas(320, 240)
   captureToCanvas()
 )
+
+#flash detection script
+hasFlash = false
+try
+  fo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash")
+  hasFlash = true  if fo
+catch e
+  hasFlash = true  unless navigator.mimeTypes["application/x-shockwave-flash"] == undefined
+  
+if(!hasFlash)
+  $('.withflash').hide()
+
 </script>
 
 
