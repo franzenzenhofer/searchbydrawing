@@ -103,25 +103,32 @@ $( ->
   #pageLoad = ->
   #  initCanvas 320, 240
   
-  gCtx = null
-  gCanvas = null
-  imageData = null
+  
+  #gCtx = null
+  #gCanvas = null
+  #imageData = null
+  sCanvas = document.createElement('canvas')
+  sCanvas.width = 320;
+  sCanvas.height = 240;
+  console.log sCanvas
+  sCtx = sCanvas.getContext("2d");
+  sImageData = sCtx.getImageData(0, 0, 320, 240)
   ii = 0
   jj = 0
   c = 0
   
-  initCanvas = (ww, hh) ->
-    alert('ininit canvas')
-    gCanvas = document.getElementById("canvas")
-    w = ww
-    h = hh
-    #gCanvas.style.width = w + "px"
-    #gCanvas.style.height = h + "px"
-    #gCanvas.width = w
-    #gCanvas.height = h
-    gCtx = gCanvas.getContext("2d")
-    #gCtx.clearRect 0, 0, w, h
-    imageData = gCtx.getImageData(0, 0, 320, 240)
+  #initCanvas = (ww, hh) ->
+  #  alert('ininit canvas')
+  #  gCanvas = document.getElementById("canvas")
+  #  w = ww
+  #  h = hh
+  #  #gCanvas.style.width = w + "px"
+  #  #gCanvas.style.height = h + "px"
+  #  #gCanvas.width = w
+  #  #gCanvas.height = h
+  #  gCtx = gCanvas.getContext("2d")
+  #  #gCtx.clearRect 0, 0, w, h
+  #  imageData = gCtx.getImageData(0, 0, 320, 240)
   
   passLine = (stringPixels) ->
     #alert('inpassline')
@@ -133,15 +140,19 @@ $( ->
       r = (intVal >> 16) & 0xff
       g = (intVal >> 8) & 0xff
       b = (intVal) & 0xff
-      imageData.data[c + 0] = r
-      imageData.data[c + 1] = g
-      imageData.data[c + 2] = b
-      imageData.data[c + 3] = 128
+      sImageData.data[c + 0] = r
+      sImageData.data[c + 1] = g
+      sImageData.data[c + 2] = b
+      sImageData.data[c + 3] = 128
       c += 4
       i++
     if c >= 320 * 240 * 4
       c = 0
-      gCtx.putImageData imageData, 0, 0
+      #cd.context.putImageData sImageData, 0, 0
+      sCtx.putImageData(sImageData, 0, 0)
+      cd.context.drawImage(sCanvas, 0,0, cd.canvas.width, cd.canvas.height)
+      #gCtx.drawImage(image, x, y)
+      #gCtx.drawImage(sCanvas,0,0,gCtx.width,gCtx.height)
       
   window.passLine = passLine
   
@@ -152,7 +163,7 @@ $( ->
     flash.ccCapture()
 
 
-  initCanvas(480, 360)
+  #initCanvas(480, 360)
   
   $('#capture').click( -> 
     

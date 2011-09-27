@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var c, captureToCanvas, cd, colors, default_height, default_width, fo, gCanvas, gCtx, hasFlash, ii, imageData, initCanvas, jj, passLine, socket, transDataUri;
+    var c, captureToCanvas, cd, colors, default_height, default_width, fo, hasFlash, ii, jj, passLine, sCanvas, sCtx, sImageData, socket, transDataUri;
     cd = new CanvasDrawing("canvas");
     default_width = cd.canvas.width + 0;
     default_height = cd.canvas.height + 0;
@@ -66,21 +66,15 @@
       return false;
     };
     $('#range').val(50);
-    gCtx = null;
-    gCanvas = null;
-    imageData = null;
+    sCanvas = document.createElement('canvas');
+    sCanvas.width = 320;
+    sCanvas.height = 240;
+    console.log(sCanvas);
+    sCtx = sCanvas.getContext("2d");
+    sImageData = sCtx.getImageData(0, 0, 320, 240);
     ii = 0;
     jj = 0;
     c = 0;
-    initCanvas = function(ww, hh) {
-      var h, w;
-      alert('ininit canvas');
-      gCanvas = document.getElementById("canvas");
-      w = ww;
-      h = hh;
-      gCtx = gCanvas.getContext("2d");
-      return imageData = gCtx.getImageData(0, 0, 320, 240);
-    };
     passLine = function(stringPixels) {
       var b, coll, g, i, intVal, r;
       coll = stringPixels.split("-");
@@ -90,16 +84,17 @@
         r = (intVal >> 16) & 0xff;
         g = (intVal >> 8) & 0xff;
         b = intVal & 0xff;
-        imageData.data[c + 0] = r;
-        imageData.data[c + 1] = g;
-        imageData.data[c + 2] = b;
-        imageData.data[c + 3] = 128;
+        sImageData.data[c + 0] = r;
+        sImageData.data[c + 1] = g;
+        sImageData.data[c + 2] = b;
+        sImageData.data[c + 3] = 128;
         c += 4;
         i++;
       }
       if (c >= 320 * 240 * 4) {
         c = 0;
-        return gCtx.putImageData(imageData, 0, 0);
+        sCtx.putImageData(sImageData, 0, 0);
+        return cd.context.drawImage(sCanvas, 0, 0, cd.canvas.width, cd.canvas.height);
       }
     };
     window.passLine = passLine;
@@ -108,7 +103,6 @@
       flash = document.getElementById("embedflash");
       return flash.ccCapture();
     };
-    initCanvas(480, 360);
     $('#capture').click(function() {
       return captureToCanvas();
     });
