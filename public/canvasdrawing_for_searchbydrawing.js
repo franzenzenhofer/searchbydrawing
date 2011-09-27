@@ -1,7 +1,7 @@
 /**
 */
 /**
-THIS IS A FORK OF 
+THIS IS A DIRTY FORK OF (added jquery dependency)
 https://github.com/balaclark/Canvas-Drawing
 */
 
@@ -49,7 +49,7 @@ function CanvasDrawing(canvasId, options) {
 		}
 		else(e.touches && e.touches[0])
 		{
-		  var canvasoffset = cd.canvas.offset();
+		  var canvasoffset = $(cd.canvas).offset();
 		  var x = e.touches[0].pageX-canvasoffset.left;
 		  var y = e.touches[0].pageY-canvasoffset.top;
 		}
