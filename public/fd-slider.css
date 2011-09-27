@@ -48,7 +48,8 @@ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFn
 /* Horizontal Outer wrapper - all other DOM elements added as children to this top level wrapper */
 .fd-slider
         {                     
-        width:100%;
+        /*width:100%;*/
+        width:480px;
         /* The height of the slider handle */
         height:20px;
         /* Set a 10 pixel bottom margin */
