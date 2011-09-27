@@ -41,26 +41,17 @@ function CanvasDrawing(canvasId, options) {
 	// setup user drawing controls, specific functions are used to translate the MouseEvent to x / y coordinates
 	function controls(e) {
 		
-		var offset = null;
-		var touche = null;
-		console.log(e);
-		console.log(e.originalEvent);
 		if(e.offset)
 		{
-		  offset = e.offset();
+		  var offset = e.offset();
+		  var x = offset.x;
+		  var y = offset.y;
 		}
-		else if (e.originalEvent && (touche = e.originalEvent.touches[0]))
+		else(e.touches && e.touches[0])
 		{
-		  console.log(touche)
-		  offset = touche.offset();
+		  var x = e.touches[0].pageX;
+		  var y = e.touches[y].pageY;
 		}
-		else if (e.originalEvent && (touche = e.originalEvent.changedTouches[0]))
-		{
-		  console.log(touche)
-		  offset = touche.offset();
-		}
-		var x = offset.x;
-		var y = offset.y;
 
   //this fuckss with the range controll on the site, so i disabled it
 	if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
