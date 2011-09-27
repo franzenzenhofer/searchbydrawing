@@ -46,30 +46,36 @@ function CanvasDrawing(canvasId, options) {
 			y = offset.y;
 
   //this fuckss with the range controll on the site, so i disabled it
-	//if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
-	e.preventDefault();
+	if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
+	//e.preventDefault();
 		
 		switch (e.type) {
 		
+		  case "mousedown": 
+			case "onmousedown":
+        
+				break;
+		
 		  case "mousemove": 
 			case "onmousemove":
+				cd.draw(x, y);
+				break;
+			
 			case "touchmove":
-				alert('touchmove');cd.draw(x, y);
-				break;
-			
-			case "mousedown": 
-			case "onmousedown":
-			case "touchstart":
-			  alert('touchstart');
-				cd.drawStart(x, y);
-				break;
-			
+			  if(!cd.drawing) { cd.drawStart(x, y); }
+			  cd.draw(x, y);
+			  break;
 
-				
-			case "mouseup": 
-			case "onmouseup":
+	    case "touchstart":
+			  //alert('touchstart');
+			  break;
+			
 			case "touchend":
-			  alert('touchend');
+			  cd.drawStop();
+			  break;
+      
+      case "mouseup": 
+			case "onmouseup":
 				cd.drawStop();
 				break;
 				
