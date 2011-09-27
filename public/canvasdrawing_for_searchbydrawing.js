@@ -49,9 +49,17 @@ function CanvasDrawing(canvasId, options) {
 		}
 		else(e.touches && e.touches[0] && e.touches[0].pageX && e.touches[0].pageY  )
 		{
-		  var canvasoffset = $(cd.canvas).offset();
-		  var x = e.touches[0].pageX-canvasoffset.left;
-		  var y = e.touches[0].pageY-canvasoffset.top;
+		  try
+		  {
+		    var canvasoffset = $(cd.canvas).offset();
+		    var x = e.touches[0].pageX-canvasoffset.left;
+		    var y = e.touches[0].pageY-canvasoffset.top;
+		  }
+		  catch(error)
+		  {
+		    console.log(error);
+		    console.log(e);
+		  }
 		}
 
   //this fuckss with the range controll on the site, so i disabled it
