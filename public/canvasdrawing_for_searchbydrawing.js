@@ -62,16 +62,16 @@ function CanvasDrawing(canvasId, options) {
 				break;
 			
 			case "touchmove":
-			   cd.drawStart(x, y);
-			  cd.draw(x, y);
+			  cd.drawStart(x, y);
+			  //cd.draw(x, y);
 			  break;
 
 	    case "touchstart":
-	      cd.drawStart(x, y);
+	      //cd.drawStart(x, y);
 			  break;
 			
 			case "touchend":
-			  cd.drawStop();
+			  //cd.drawStop();
 			  break;
       
       case "mouseup": 
