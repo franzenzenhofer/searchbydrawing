@@ -100,8 +100,9 @@
       flash = document.getElementById("embedflash");
       return flash.ccCapture();
     };
-    $('#capture').click(function() {
-      return captureToCanvas();
+    $('#takeaphoto').click(function() {
+      captureToCanvas();
+      return document.location = '#top';
     });
     hasFlash = false;
     try {

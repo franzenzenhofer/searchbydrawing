@@ -165,9 +165,10 @@ $( ->
 
   #initCanvas(480, 360)
   
-  $('#capture').click( -> 
+  $('#takeaphoto').click( -> 
     
     captureToCanvas()
+    document.location='#top'
   )
   
   #flash detection script
