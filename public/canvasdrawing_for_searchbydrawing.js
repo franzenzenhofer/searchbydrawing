@@ -50,6 +50,12 @@ function CanvasDrawing(canvasId, options) {
 	//e.preventDefault();
 		
 		switch (e.type) {
+		
+		  case "mousemove": 
+			case "onmousemove":
+			case "touchmove":
+				cd.draw(x, y);
+				break;
 			
 			case "mousedown": 
 			case "onmousedown":
@@ -57,13 +63,7 @@ function CanvasDrawing(canvasId, options) {
 				cd.drawStart(x, y);
 				break;
 			
-			case "mousemove": 
-			case "onmousemove":
-			case "touchmove":
-				cd.draw(x, y);
-				break;
-				
-			case "mouseup": 
+      case "mouseup": 
 			case "onmouseup":
 			case "touchend":
 				cd.drawStop();
