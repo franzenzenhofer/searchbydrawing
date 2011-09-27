@@ -53,7 +53,7 @@ function CanvasDrawing(canvasId, options) {
 		
 		  case "mousedown": 
 			case "onmousedown":
-        
+        cd.drawStart(x, y);
 				break;
 		
 		  case "mousemove": 
@@ -67,7 +67,7 @@ function CanvasDrawing(canvasId, options) {
 			  break;
 
 	    case "touchstart":
-			  //alert('touchstart');
+	      cd.drawStart(x, y);
 			  break;
 			
 			case "touchend":
