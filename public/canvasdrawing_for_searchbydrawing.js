@@ -41,7 +41,22 @@ function CanvasDrawing(canvasId, options) {
 	// setup user drawing controls, specific functions are used to translate the MouseEvent to x / y coordinates
 	function controls(e) {
 		
-		var offset = e.offset() || e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+		var offset = null;
+		var touche = null;
+		if(e.offset)
+		{
+		  offset = e.offset();
+		}
+		else if (touche = e.originalEvent.touches[0])
+		{
+		  console.log(touche)
+		  offset = touche.offset();
+		}
+		else if (touche = e.originalEvent.changedTouches[0])
+		{
+		  console.log(touche)
+		  offset = touche.offset();
+		}
 		var x = offset.x;
 		var y = offset.y;
 
