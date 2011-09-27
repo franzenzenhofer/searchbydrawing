@@ -46,7 +46,7 @@ $( ->
     )
   
   $('#range').change(->
-      console.log @.value
+      #console.log @.value
       cd.setOption("lineWidth", @value)
     )
     
@@ -80,7 +80,7 @@ $( ->
           
           #window.setTimeout((-> cd.canvas.width = img.width),100)
           
-          console.log(newwidth+'---'+newheight)
+          #console.log(newwidth+'---'+newheight)
         #alert('now draw 150')
         window.setTimeout((-> 
           cd.canvas.width=newwidth;
@@ -110,7 +110,7 @@ $( ->
   sCanvas = document.createElement('canvas')
   sCanvas.width = 320;
   sCanvas.height = 240;
-  console.log sCanvas
+  #console.log sCanvas
   sCtx = sCanvas.getContext("2d");
   sImageData = sCtx.getImageData(0, 0, 320, 240)
   ii = 0

@@ -23,7 +23,6 @@
       return cd.setOption("color", '#' + this.getAttribute("data-color"));
     });
     $('#range').change(function() {
-      console.log(this.value);
       return cd.setOption("lineWidth", this.value);
     });
     cd.canvas.ondragover = function() {
@@ -52,7 +51,6 @@
           } else {
             newwidth = img.width * (default_height / img.height);
             newheight = default_height;
-            console.log(newwidth + '---' + newheight);
           }
           return window.setTimeout((function() {
             cd.canvas.width = newwidth;
@@ -69,7 +67,6 @@
     sCanvas = document.createElement('canvas');
     sCanvas.width = 320;
     sCanvas.height = 240;
-    console.log(sCanvas);
     sCtx = sCanvas.getContext("2d");
     sImageData = sCtx.getImageData(0, 0, 320, 240);
     ii = 0;
