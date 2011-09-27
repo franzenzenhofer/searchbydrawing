@@ -47,7 +47,7 @@ function CanvasDrawing(canvasId, options) {
 		  var x = offset.x;
 		  var y = offset.y;
 		}
-		else(e.touches && e.touches[0])
+		else(e.touches && e.touches[0] && e.touches[0].pageX && e.touches[0].pageY  )
 		{
 		  var canvasoffset = $(cd.canvas).offset();
 		  var x = e.touches[0].pageX-canvasoffset.left;
