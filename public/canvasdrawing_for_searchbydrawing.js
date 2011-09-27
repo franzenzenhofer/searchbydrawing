@@ -48,7 +48,7 @@ function CanvasDrawing(canvasId, options) {
   //this fuckss with the range controll on the site, so i disabled it
 	if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
 	//e.preventDefault();
-		
+		e.preventDefault();
 		switch (e.type) {
 		
 		  case "mousemove": 
