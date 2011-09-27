@@ -49,8 +49,9 @@ function CanvasDrawing(canvasId, options) {
 		}
 		else(e.touches && e.touches[0])
 		{
-		  var x = e.touches[0].pageX;
-		  var y = e.touches[0].pageY;
+		  var canvasoffset = cd.canvas.offset();
+		  var x = e.touches[0].pageX-canvasoffset.left;
+		  var y = e.touches[0].pageY-canvasoffset.top;
 		}
 
   //this fuckss with the range controll on the site, so i disabled it
@@ -70,20 +71,17 @@ function CanvasDrawing(canvasId, options) {
 				break;
 			
 			case "touchmove":
-			  e.preventDefault();
-			  cd.drawStart(x, y);
+			  if(!cd.drawing){cd.drawStart(x, y);}
 			  if(console){console.log('tm'+x+'-'+y);}
-			  //cd.draw(x, y);
+			  cd.draw(x, y);
 			  break;
 
 	    case "touchstart":
-	      e.preventDefault();
-	      //cd.drawStart(x, y);
+	      cd.drawStart(x, y);
 			  break;
 			
 			case "touchend":
-			  e.preventDefault();
-			  //cd.drawStop();
+			  cd.drawStop();
 			  break;
       
       case "mouseup": 
