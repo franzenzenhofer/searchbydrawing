@@ -1,0 +1,17 @@
+{
+  "name": "searchbydrawing",
+  "description": "Search Google by drawing or picture",
+  "version": "0.3.3",
+  "author": "Franz Enzenhofer <f.enzenhofer@gmail.com>",
+  "main": "./server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franzenzenhofer/searchbydrawing"
+  },
+  "dependencies": {
+    "socket.io": "0.8.x",
+    "knox": "0.0.x",
+    "express": "2.4.x",
+    "coffee-script": "*"
+  }
+}

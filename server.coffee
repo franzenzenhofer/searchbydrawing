@@ -18,7 +18,10 @@ knoxClient = knox.createClient(
 app = express.createServer()
 io = require("socket.io").listen(app)
 app.use(express.static(__dirname + '/public'));
-app.listen 3000
+port = if process.env.PORT then process.env.PORT else 3000
+console.log('listening on port '+port)
+console.log('http://localhost:'+port+'/')
+app.listen port
 #app.get "/", (req, res) ->
 #  res.sendfile __dirname + "/public/index.html"
 
