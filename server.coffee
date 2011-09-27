@@ -6,9 +6,10 @@ crypto = require 'crypto'
 #dirty hack as i need a stream to upload the data to s3
 #stream = process.stdin;
 
+config = require('./config.coffee')
 knoxClient = knox.createClient(
-    key: "AKIAJHZL2XRAHZZRVLOQ"
-    secret: "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"
+    key: config.s3_key
+    secret: config.s3_secret
     bucket: "searchbydrawing"
   )
   
@@ -16,6 +17,7 @@ knoxClient = knox.createClient(
 
 
 app = express.createServer()
+
 io = require("socket.io").listen(app)
 app.use(express.static(__dirname + '/public'));
 port = if process.env.PORT then process.env.PORT else 3000
