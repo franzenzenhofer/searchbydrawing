@@ -1,5 +1,5 @@
 (function() {
-  var app, crypto, express, fs, io, knox, knoxClient;
+  var app, crypto, express, fs, io, knox, knoxClient, port;
   fs = require('fs');
   knox = require("knox");
   express = require("express");
@@ -12,7 +12,10 @@
   app = express.createServer();
   io = require("socket.io").listen(app);
   app.use(express.static(__dirname + '/public'));
-  app.listen(3000);
+  port = process.env.PORT ? process.env.PORT : 3000;
+  console.log('listening on port ' + port);
+  console.log('http://localhost:' + port + '/');
+  app.listen(port);
   io.sockets.on("connection", function(socket) {
     return socket.on("search", function(data) {
       var buf, filename, req;

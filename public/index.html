@@ -271,7 +271,8 @@ colors = "000000,000033,000066,000099,0000CC,0000FF,003300,003333,003366,003399,
 
 cd.setOption("color", '#'+colors[Math.floor(Math.random()*colors.length)]);
 
-socket = io.connect("http://localhost")
+#socket = io.connect("http://localhost")
+socket = io.connect()
 
 socket.on("upload success", (data) ->
   window.location = 'http://www.google.com/searchbyimage?image_url='+encodeURI(data.imgurl)
