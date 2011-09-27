@@ -40,20 +40,21 @@ function CanvasDrawing(canvasId, options) {
 
 	// setup user drawing controls, specific functions are used to translate the MouseEvent to x / y coordinates
 	function controls(e) {
-		
+		var x = null;
+		var y = null;
 		if(e.offset)
 		{
 		  var offset = e.offset();
-		  var x = offset.x;
-		  var y = offset.y;
+		  x = offset.x;
+		  y = offset.y;
 		}
-		else(e.touches && e.touches[0] && e.touches[0].pageX && e.touches[0].pageY  )
+		else if(e.touches && e.touches[0] && e.touches[0].pageX && e.touches[0].pageY  )
 		{
 		  try
 		  {
 		    var canvasoffset = $(cd.canvas).offset();
-		    var x = e.touches[0].pageX-canvasoffset.left;
-		    var y = e.touches[0].pageY-canvasoffset.top;
+		    x = e.touches[0].pageX-canvasoffset.left;
+		    y = e.touches[0].pageY-canvasoffset.top;
 		  }
 		  catch(error)
 		  {
@@ -65,7 +66,9 @@ function CanvasDrawing(canvasId, options) {
   //this fuckss with the range controll on the site, so i disabled it
 	if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
 	//e.preventDefault();
-		
+	
+	if(x&&y)
+	{
 		switch (e.type) {
 		
 		  case "mousedown": 
@@ -105,6 +108,7 @@ function CanvasDrawing(canvasId, options) {
 				cd.drawResume(x, y);
 				break;
 		}
+	}
 	}
 
 	// add click & touch interfaces
