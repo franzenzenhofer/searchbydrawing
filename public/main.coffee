@@ -15,7 +15,7 @@ $( ->
   socket = io.connect()
   
   socket.on("upload success", (data) ->
-    window.location = 'http://www.google.com/searchbyimage?image_url='+encodeURI(data.imgurl)
+    window.location = 'http://www.google.com/searchbyimage?nota=1&image_url='+encodeURI(data.imgurl)
     )
   
   transDataUri = ->  	

@@ -9,7 +9,7 @@
     cd.setOption("color", '#' + colors[Math.floor(Math.random() * colors.length)]);
     socket = io.connect();
     socket.on("upload success", function(data) {
-      return window.location = 'http://www.google.com/searchbyimage?image_url=' + encodeURI(data.imgurl);
+      return window.location = 'http://www.google.com/searchbyimage?nota=1&image_url=' + encodeURI(data.imgurl);
     });
     transDataUri = function() {
       return socket.emit('search', {
