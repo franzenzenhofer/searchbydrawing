@@ -46,7 +46,7 @@ function CanvasDrawing(canvasId, options) {
 			y = offset.y;
 
   //this fuckss with the range controll on the site, so i disabled it
-	if (e.preventDefault && e.srcElement.id && e.srcElement.id==canvasId) { e.preventDefault(); }
+	if (e.preventDefault && e.srcElement && e.srcElement.id==canvasId) { e.preventDefault(); }
 	//e.preventDefault();
 		
 		switch (e.type) {
