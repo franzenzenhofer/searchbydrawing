@@ -44,6 +44,7 @@ function CanvasDrawing(canvasId, options) {
 		var offset = null;
 		var touche = null;
 		console.log(e);
+		console.log(e.originalEvent);
 		if(e.offset)
 		{
 		  offset = e.offset();
