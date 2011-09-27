@@ -62,7 +62,7 @@ function CanvasDrawing(canvasId, options) {
 				break;
 			
 			case "touchmove":
-			  if(!cd.drawing) { cd.drawStart(x, y); }
+			   cd.drawStart(x, y);
 			  cd.draw(x, y);
 			  break;
 
