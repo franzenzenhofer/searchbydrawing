@@ -143,7 +143,7 @@ $( ->
       sImageData.data[c + 0] = r
       sImageData.data[c + 1] = g
       sImageData.data[c + 2] = b
-      sImageData.data[c + 3] = 128
+      sImageData.data[c + 3] = 255
       c += 4
       i++
     if c >= 320 * 240 * 4
