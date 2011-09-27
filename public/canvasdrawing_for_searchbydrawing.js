@@ -72,7 +72,7 @@ function CanvasDrawing(canvasId, options) {
 			
 			case "touchmove":
 			  if(!cd.drawing){cd.drawStart(x, y);}
-			  if(console){console.log('tm'+x+'-'+y);}
+			  //if(console){console.log('tm'+x+'-'+y);}
 			  cd.draw(x, y);
 			  break;
 
