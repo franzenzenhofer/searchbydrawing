@@ -45,6 +45,35 @@ $( ->
       cd.setOption("color", '#'+@getAttribute("data-color"));
     )
   
+  
+  
+  #range test
+  do ->
+    input = document.createElement("input")
+    input.setAttribute("type", "range")
+    if input.type isnt 'range'
+      alert 'range is not supported'
+      $('#range').remove()
+      #$('#rangewrapper').remove()
+      $('#rangewrapper').html('''
+      <lable>Brush size:&nbsp;</lable><select id="range" style="width:70%;">
+      <option value='1'> 1px </option>
+      <option value='5'> 5px </option>
+      <option value='10'> 10px </option>
+      <option value='20'> 20px </option>
+      <option value='30'> 30px </option>
+      <option value='40'> 40px </option>
+      <option value='50' selected> 50px </option>
+      <option value='60'> 60px </option>
+      <option value='80'> 80px </option>
+      <option value='90'> 90px </option>
+      <option value='100'> 100px </option>
+      <option value='120'> 120px </option>
+      <option value='150'> 150px </option>
+      <option value='200'> 200px </option>
+       </select>
+        ''')
+
   $('#range').change(->
       #console.log @.value
       cd.setOption("lineWidth", @value)

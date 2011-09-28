@@ -22,6 +22,16 @@
     $('.color').click(function() {
       return cd.setOption("color", '#' + this.getAttribute("data-color"));
     });
+    (function() {
+      var input;
+      input = document.createElement("input");
+      input.setAttribute("type", "range");
+      if (input.type !== 'range') {
+        alert('range is not supported');
+        $('#range').remove();
+        return $('#rangewrapper').html('<lable>Brush size:&nbsp;</lable><select id="range" style="width:70%;">\n<option value=\'1\'> 1px </option>\n<option value=\'5\'> 5px </option>\n<option value=\'10\'> 10px </option>\n<option value=\'20\'> 20px </option>\n<option value=\'30\'> 30px </option>\n<option value=\'40\'> 40px </option>\n<option value=\'50\' selected> 50px </option>\n<option value=\'60\'> 60px </option>\n<option value=\'80\'> 80px </option>\n<option value=\'90\'> 90px </option>\n<option value=\'100\'> 100px </option>\n<option value=\'120\'> 120px </option>\n<option value=\'150\'> 150px </option>\n<option value=\'200\'> 200px </option>\n </select>');
+      }
+    })();
     $('#range').change(function() {
       return cd.setOption("lineWidth", this.value);
     });
