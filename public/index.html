@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<meta name="viewport" content="width=device-width, user-scalable=no" />
 		<title>Goolge Image Search By Drawing</title>
 		
@@ -58,10 +59,7 @@ width: 480px;
 display: inline-block; 
 }
 
-#totally
-{
-  font-family: arial,sans-serif; font-weight: 100;  color:black;
-}
+
 
 #colors
 {
@@ -127,6 +125,16 @@ display: inline-block;
  bottom:3px;
 }
 
+.warning
+{
+  border: 1px solid red;
+  color: #D8000C;
+  background-color: #FFBABA;
+  text-align:left;
+  padding: 5px 5px 5px 5px;
+  margin-bottom:5px;
+}
+
 .note
 {
  border: 1px solid orange;
@@ -137,9 +145,30 @@ display: inline-block;
  text-align:left;
 }
 
-.google
+#h1
 {
-  
+  font-family: arial,sans-serif;   color:black;
+  /*font-weight: 5000 !important;*/
+}
+
+#googlelogo
+{
+  border:0px solid black;
+}
+
+#text  li
+{
+   
+}
+
+#text  ul
+{
+  margin-bottom:10px;
+} 
+
+#text .q
+{
+  font-weight:bold;
 }
 
 		</style>
@@ -148,11 +177,22 @@ display: inline-block;
     <script src="/fd-slider.js"></script>-->
     <!-- slider mist -->
 		<link rel="shortcut icon" href="/favicon.ico">
+	<script type="text/javascript">var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-22409310-1']);
+_gaq.push(['_setDomainName', '.franz-enzenhofer.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 	</head>
 <body>
   <a name="top"></a>
 	<center id="wrapper">
-	  <div><h1 id="totally">totally unoffical <span id="googlelogo">Google</span> Image Search by Drawing</div>
+	  <h1 style="font-weight: 5000 !important;">unoffical <span id="googlelogo">Google</span> Image Search by Drawing
 	  <!--<img src="http://www.google.com/logos/van_gogh.gif" id="logo">-->
 	  </h1>
 		<div><canvas id="canvas" width="480" height="360">
@@ -165,12 +205,12 @@ display: inline-block;
 		<div><span class="inline"><span class="buttonblock"><input name="second" type="submit" value="Search by Drawing" class="button" id='search'></span></span></div>
 		
 	<div id='text'>
-	<h2>To-Do</h2>
+	<!--<h2>To-Do</h2>
 	<ul>
 	  <li>List of all 'non drag n drop' images.</li>
 	  <li>search bar with better url for cooler sharing</li>
 	  <li>deploy and launch for jsconfeu</li>
-	</ul>
+	</ul>-->
 	<h2>How-To</h2>
 	<h3>Draw and Search</h3>
 	<ul>
@@ -187,6 +227,7 @@ display: inline-block;
 	  <li>Wait a second.</li>
 	  <li>Draw something on the picture.</li>
 	  <li>Click on the "Search by Drawing" button.</li>
+	  <li>This works only in Chroma and Firefox, not Safari.</li>
 	</ul>
 	<h3><a name="photo"></a>Take a picture</h3>
 	<ul>
@@ -215,8 +256,18 @@ display: inline-block;
     <!--picture end--->
   <h3><a name="webcam-troubleshooting"></a>Webcam Troubleshooting</h3>
   <ul>
-    <li>
-    </li>
+    <li>Sadly we have to use Flash to access the webcam.</li>
+    <li>Sadly Flash is a very buggy software.</li>
+    <li>So there is no guarentee for success.</li>
+    <li>Right click (on the Flash area) -> Settings</li>
+    <li>Click on the ugly webcam icon on the right hand side.</li>
+    <li>Select another webcam in the drop-down menu.</li>
+    <li>Click on close.</li>
+    <li>Wait a few seconds.</li>
+    <li>If nothing shows up, try it again with another camere in the drop down menu.</li>
+    <li>And then again.</li>
+    <li>And again.</li>
+    <li>Hope it works now.</li>
   </ul>
   
   
@@ -224,43 +275,49 @@ display: inline-block;
 	<ul>
 	  <li>
 	    <ul>
-	      <li>Does this work on iPads, iPhone, tablets, ...?</li>
-	      <li>It should, sadly it doesn't. Google offers a tablet/mobile experience for some mobile/tablet devices. This experience sadly redirects users from the "Google Search by Image" search page to the Google homepage. <a href="">The bug is already reported to Google</a> You can star it to make it more prominent.</li>
+	      <li class="q">Does this work on iPads, iPhone, tablets, Androids, ...?</li>
+	      <li>It should, sadly it doesn't. Google offers a tablet/mobile experience for some mobile/tablet devices. This experience sadly redirects users from the "Google Search by Image" search page to the Google homepage. <a href="http://www.google.com/support/forum/p/Web+Search/thread?tid=6c8fda0c0f045f07&hl=en">The bug is already reported to Google</a>. You can star it to make it more prominent.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Is this an offical Google product?</li>
+	      <li class="q">Does this work with Internet Explorer 6/7/8/9/10/...?</li>
+	      <li>No, yes, I don't know. I don't care. <a href="http://www.google.com/chrome">Get a real browser!</a></li>
+	    </ul>
+	  </li>
+	  <li>
+	    <ul>
+	      <li class="q">Is this an offical Google product?</li>
 	      <li>No, this is totally unoffical.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Is this sitea affilaited with Google?</li>
+	      <li  class="q">Is this sitea affilaited with Google?</li>
 	      <li>No.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Are you a Googler?</li>
+	      <li class="q" >Are you a Googler?</li>
 	      <li>No.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Then why is the Google doodle on top of the page?</li>
-	      <li>It's a <b><a href="http://en.wikipedia.org/wiki/Homage">homage</a></b> and the main image search action happens on via <a href="http://www.google.com/insidesearch/searchbyimage.html">Google Search by Image</a>.</li>
+	      <li class="q" >Then why is the Google on top of the page?</li>
+	      <li>It's a <b><a href="http://en.wikipedia.org/wiki/Homage">homage</a></b> and the main image search action happens via <a href="http://www.google.com/insidesearch/searchbyimage.html">Google Search by Image</a>.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Who created this?</li>
-	      <li>I did. Well kinda. The "<a href="http://www.google.com/insidesearch/searchbyimage.html">Search by Image</a>" functionality is provided by Google. Accessable via a simple URL. The canvas drawing thingie is a fork of <a href="https://github.com/godrin/drawingCanvas">drawingCanvas</a> by a guy called <a href="https://github.com/godrin">godrin</a>. I glued it together.</li>
+	      <li class="q" >Who created this?</li>
+	      <li>I did. Well kinda. I glued it together. The "<a href="http://www.google.com/insidesearch/searchbyimage.html">Search by Image</a>" functionality is provided by Google. Accessable via a simple URL. The canvas drawing thingie is a fork of <a href="https://github.com/balaclark/Canvas-Drawing">drawingCanvas</a> by a guy called <a href="https://github.com/balaclark">balaclark</a>. The <a href="https://github.com/taboca/CamCanvas-API-">Flash webcam thingie</a> was created by <a href="https://github.com/taboca">taboca</a>.</li>
 	    </ul>
 	  </li>
 	  <li>
 	   <ul>
-	      <li>How does this work?</li>
+	      <li class="q" >How does this work?</li>
 	      <li>You mean technically? Quite simple actually.
 	        <ul>
 	          <li>You draw something on an HTML5 canvas.</li>
@@ -271,18 +328,19 @@ display: inline-block;
 	          <li>The Amazon S3 Image URL gets communicated back to your browser.</li> 
 	         <li>Browser gets redirected to Google Search by Image.</li>
 	        </ul>
-	      <li>
+	      </li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Who are you?</li>
-	      <li>Franz Enzenhofer - Github, Twitter, G+ and i even have a Fan-Page on Fb.</li>
+	      <li class="q" >Who are you?</li>
+	      <li>Franz Enzenhofer - <a href="https://github.com/franzenzenhofer">Github</a>, <a href="http://news.ycombinator.com/user?id=franze">Hacker News</a>, <a href="http://twitter.com/enzenhofer">Twitter</a>, <a href="http://twitter.com/enzenhofer">Google+</a> and i even have a <a href="http://www.facebook.com/pages/Franz-Enzenhofer/156536657909">Fan-Page on Facebook</a>.</li>
+	      <li>And <a href="http://www.franz-enzenhofer.com/">www.franz-enzenhofer.com</a></li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>What technology did you use?</li>
+	      <li class="q" >What technology did you use?</li>
 	      <li>
 	        <ul>
 	          <li>emacs</li>
@@ -294,25 +352,26 @@ display: inline-block;
 	          <li>node.js</li>
 	          <li>Heroku Cedar Stack</li>
 	          <li>Amazon S3</li>
+	          <li>Flash</li>
 	        </ul>
 	      </li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Does this work over all browsers?</li>
-	      <li>No, i tested it on Chrome, Safari on Mac.</li>
+	      <li class="q" >Does this work over all browsers?</li>
+	      <li>No, i tested it on Chrome, Safari, Firefox on Mac.</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Can i fork it?</li>
-	      <li>Sure.</li>
+	      <li class="q" >Can i fork it?</li>
+	      <li>Sure. (Source to come.)</li>
 	    </ul>
 	  </li>
 	  <li>
 	    <ul>
-	      <li>Thx</li>
+	      <li class="q" >Thx</li>
 	      <li>You are welcome.</li>
 	    </ul>
 	  </li>	

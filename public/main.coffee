@@ -96,7 +96,8 @@ $( ->
     if isMobile()
     #if true
       $('h1').after('''
-      <div class="note">Sadly, there is a redirect bug on the <b>Google</b> website for mobile decives. On the <b>Google Image Search by Image</b> page, Google <b><i>redirects mobile devices from the result page to the Google homepage</i></b>, so you can not view the result of your search. Sorry. The bug is already reported to Google. The only workaround is to use a non mobile browser.</div>
+      <div class="warning">Device not supported! <b>:(</b></div>
+      <div class="note">Sadly, there is a redirect bug on the <b>Google</b> website for mobile decives. On the <b>Google Search by Image</b> page, Google <b><i>redirects mobile devices from the result page to the Google homepage</i></b>, so you can not view the result of your search. Sorry. The bug is already reported to Google. The only workaround is to use a non mobile browser.</div>
       ''')
   
   do ->
