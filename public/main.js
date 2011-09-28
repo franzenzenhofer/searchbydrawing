@@ -24,6 +24,7 @@
     });
     (function() {
       var input;
+      alert('range test start');
       input = document.createElement("input");
       input.setAttribute("type", "range");
       if (input.type !== 'range') {

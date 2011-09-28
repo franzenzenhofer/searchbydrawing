@@ -49,6 +49,7 @@ $( ->
   
   #range test
   do ->
+    alert('range test start')
     input = document.createElement("input")
     input.setAttribute("type", "range")
     if input.type isnt 'range'
