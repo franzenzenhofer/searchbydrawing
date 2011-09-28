@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var c, captureToCanvas, cd, colors, default_height, default_width, fo, hasFlash, ii, jj, passLine, sCanvas, sCtx, sImageData, socket, transDataUri;
+    var c, captureToCanvas, cd, colors, default_height, default_width, fo, hasFlash, ii, isIApple, jj, passLine, sCanvas, sCtx, sImageData, socket, transDataUri;
     cd = new CanvasDrawing("canvas");
     default_width = cd.canvas.width + 0;
     default_height = cd.canvas.height + 0;
@@ -22,13 +22,18 @@
     $('.color').click(function() {
       return cd.setOption("color", '#' + this.getAttribute("data-color"));
     });
+    isIApple = function() {
+      if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
+        return true;
+      } else {
+        return false;
+      }
+    };
     (function() {
       var input;
-      alert('range test start');
       input = document.createElement("input");
       input.setAttribute("type", "range");
-      if (input.type !== 'range') {
-        alert('range is not supported');
+      if ((input.type !== 'range') || (isIApple())) {
         $('#range').remove();
         return $('#rangewrapper').html('<lable>Brush size:&nbsp;</lable><select id="range" style="width:70%;">\n<option value=\'1\'> 1px </option>\n<option value=\'5\'> 5px </option>\n<option value=\'10\'> 10px </option>\n<option value=\'20\'> 20px </option>\n<option value=\'30\'> 30px </option>\n<option value=\'40\'> 40px </option>\n<option value=\'50\' selected> 50px </option>\n<option value=\'60\'> 60px </option>\n<option value=\'80\'> 80px </option>\n<option value=\'90\'> 90px </option>\n<option value=\'100\'> 100px </option>\n<option value=\'120\'> 120px </option>\n<option value=\'150\'> 150px </option>\n<option value=\'200\'> 200px </option>\n </select>');
       }

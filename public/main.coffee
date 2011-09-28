@@ -45,15 +45,20 @@ $( ->
       cd.setOption("color", '#'+@getAttribute("data-color"));
     )
   
-  
+  isIApple = ->
+    if ((navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1))
+      return true
+    else
+      return false
   
   #range test
   do ->
-    alert('range test start')
+    #alert('range test start')
     input = document.createElement("input")
     input.setAttribute("type", "range")
-    if input.type isnt 'range'
-      alert 'range is not supported'
+    
+    if ((input.type isnt 'range') or (isIApple()))
+      #alert 'range is not supported'
       $('#range').remove()
       #$('#rangewrapper').remove()
       $('#rangewrapper').html('''
