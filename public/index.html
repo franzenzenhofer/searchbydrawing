@@ -7,6 +7,11 @@
 		
 	<link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
 		<style>
+		 body
+		 {
+		  font: 15px arial,sans-serif;
+		  background:white;
+		 }
 			canvas {
 				border: solid 1px #ccc;
 				#cursor: crosshair;
@@ -55,7 +60,7 @@ display: inline-block;
 
 #totally
 {
-  font-family:  monospace; font-weight: 100; font-size:1em; color:gray;
+  font-family: arial,sans-serif; font-weight: 100;  color:black;
 }
 
 #colors
@@ -116,9 +121,25 @@ display: inline-block;
 
 #phototrigger
 {
- font-family:  monospace; font-weight: 100; font-size:1em; color:gray;
+  /*font-family:  monospace;*/
+  font-weight: 100; font-size:1em; color:gray;
  position:relative;
- bottom:5px;
+ bottom:3px;
+}
+
+.note
+{
+ border: 1px solid orange;
+ color: #9F6000; 
+ background-color: #FEEFB3;
+ padding: 5px 5px 5px 5px;
+ margin-bottom:20px;
+ text-align:left;
+}
+
+.google
+{
+  
 }
 
 		</style>
@@ -131,9 +152,9 @@ display: inline-block;
 <body>
   <a name="top"></a>
 	<center id="wrapper">
-	  <div><div id="totally">totally unoffical</div>
-	  <img src="http://www.google.com/logos/van_gogh.gif" id="logo">
-	  </div>
+	  <div><h1 id="totally">totally unoffical <span id="googlelogo">Google</span> Image Search by Drawing</div>
+	  <!--<img src="http://www.google.com/logos/van_gogh.gif" id="logo">-->
+	  </h1>
 		<div><canvas id="canvas" width="480" height="360">
 			<p>Your browser doesn't support canvas!</p>
 		</canvas></div>

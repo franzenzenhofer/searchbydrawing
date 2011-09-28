@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var c, captureToCanvas, cd, colors, default_height, default_width, fo, hasFlash, ii, isIApple, jj, passLine, sCanvas, sCtx, sImageData, socket, transDataUri;
+    var c, captureToCanvas, cd, colors, default_height, default_width, fo, hasFlash, ii, isIApple, isMobile, jj, passLine, sCanvas, sCtx, sImageData, socket, transDataUri;
     cd = new CanvasDrawing("canvas");
     default_width = cd.canvas.width + 0;
     default_height = cd.canvas.height + 0;
@@ -29,6 +29,13 @@
         return false;
       }
     };
+    isMobile = function() {
+      if ((navigator.userAgent.indexOf('mobile') !== -1) || (navigator.userAgent.indexOf('Mobile') !== -1)) {
+        return true;
+      } else {
+        return false;
+      }
+    };
     (function() {
       var input;
       input = document.createElement("input");
@@ -41,6 +48,14 @@
     $('#range').change(function() {
       return cd.setOption("lineWidth", this.value);
     });
+    (function() {
+      if (isMobile()) {
+        return $('h1').after('<div class="note">Sadly, there is a redirect bug on the <b>Google</b> website for mobile decives. On the <b>Google Image Search by Image</b> page, Google <b><i>redirects mobile devices from the result page to the Google homepage</i></b>, so you can not view the result of your search. Sorry. The bug is already reported to Google. The only workaround is to use a non mobile browser.</div>');
+      }
+    })();
+    (function() {
+      return $('#googlelogo').html('<span style="color: #0140CA;">G</span><span style="color: #DD1812;">o</span><span style="color: #FCCA03;">o</span><span style="color: #0140CA;">g</span><span style="color: #16A61E;">l</span><span style="color: #DD1812;">e</span>');
+    })();
     cd.canvas.ondragover = function() {
       this.className = "hover";
       return false;

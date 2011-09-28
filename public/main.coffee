@@ -51,6 +51,12 @@ $( ->
     else
       return false
   
+  isMobile = -> 
+    if ((navigator.userAgent.indexOf('mobile') != -1) || (navigator.userAgent.indexOf('Mobile') != -1))
+      return true
+    else
+      return false
+  
   #range test
   do ->
     #alert('range test start')
@@ -84,6 +90,17 @@ $( ->
       #console.log @.value
       cd.setOption("lineWidth", @value)
     )
+    
+  #mobile warning
+  do ->
+    if isMobile()
+    #if true
+      $('h1').after('''
+      <div class="note">Sadly, there is a redirect bug on the <b>Google</b> website for mobile decives. On the <b>Google Image Search by Image</b> page, Google <b><i>redirects mobile devices from the result page to the Google homepage</i></b>, so you can not view the result of your search. Sorry. The bug is already reported to Google. The only workaround is to use a non mobile browser.</div>
+      ''')
+  
+  do ->
+    $('#googlelogo').html('<span style="color: #0140CA;">G</span><span style="color: #DD1812;">o</span><span style="color: #FCCA03;">o</span><span style="color: #0140CA;">g</span><span style="color: #16A61E;">l</span><span style="color: #DD1812;">e</span>')
     
   cd.canvas.ondragover = ->
     @className = "hover"
