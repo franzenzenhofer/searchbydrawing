@@ -19,6 +19,9 @@ knoxClient = knox.createClient(
 app = express.createServer()
 
 io = require("socket.io").listen(app)
+io.configure( -> 
+  io.set("transports", ["xhr-polling", "flashsocket", "json-polling"]);
+  )
 app.use(express.static(__dirname + '/public'));
 port = if process.env.PORT then process.env.PORT else 3000
 console.log('listening on port '+port)

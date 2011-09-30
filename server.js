@@ -1,16 +1,20 @@
 (function() {
-  var app, crypto, express, fs, io, knox, knoxClient, port;
+  var app, config, crypto, express, fs, io, knox, knoxClient, port;
   fs = require('fs');
   knox = require("knox");
   express = require("express");
   crypto = require('crypto');
+  config = require('./config.coffee');
   knoxClient = knox.createClient({
-    key: "AKIAJHZL2XRAHZZRVLOQ",
-    secret: "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",
+    key: config.s3_key,
+    secret: config.s3_secret,
     bucket: "searchbydrawing"
   });
   app = express.createServer();
   io = require("socket.io").listen(app);
+  io.configure(function() {
+    return io.set("transports", ["xhr-polling", "flashsocket", "json-polling"]);
+  });
   app.use(express.static(__dirname + '/public'));
   port = process.env.PORT ? process.env.PORT : 3000;
   console.log('listening on port ' + port);
