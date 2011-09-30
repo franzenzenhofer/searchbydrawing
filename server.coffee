@@ -21,7 +21,7 @@ app = express.createServer()
 io = require("socket.io").listen(app)
 io.configure(->  
   io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
+  io.set("polling duration", 30); 
   )
 app.use(express.static(__dirname + '/public'));
 port = if process.env.PORT then process.env.PORT else 3000
