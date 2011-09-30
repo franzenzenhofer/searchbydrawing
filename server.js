@@ -13,7 +13,8 @@
   app = express.createServer();
   io = require("socket.io").listen(app);
   io.configure(function() {
-    return io.set("transports", ["xhr-polling", "flashsocket", "json-polling"]);
+    io.set("transports", ["xhr-polling"]);
+    return io.set("polling duration", 10);
   });
   app.use(express.static(__dirname + '/public'));
   port = process.env.PORT ? process.env.PORT : 3000;
