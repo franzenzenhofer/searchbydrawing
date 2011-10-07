@@ -45,6 +45,23 @@ $( ->
       cd.setOption("color", '#'+@getAttribute("data-color"));
     )
   
+  $('#addcolorbutton').click( ->
+    v = $('#addcolor').val()
+    
+    if(v and v isnt '')
+      nc = $('<li style="background-color:#'+v+'" data-color="'+v+'" class="color"></li>')
+      nc.click( ->
+        cd.setOption("color", '#'+@getAttribute("data-color"));
+      )
+      $('#colors').prepend(nc)
+      $('#addcolor').css('background-color', '#'+v)
+      cd.setOption("color", '#'+v)
+  )
+  
+  $('#brushsizebutton').click( ->
+    
+  }
+  
   isIApple = ->
     if ((navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1))
       return true
@@ -89,7 +106,23 @@ $( ->
   $('#range').change(->
       #console.log @.value
       cd.setOption("lineWidth", @value)
+      $('#brushsize').val(@value)
     )
+    
+  $('#brushsizebutton').click(->
+    isNumber = (n) ->
+      return !isNaN(parseFloat(n)) && isFinite(n)
+    
+    bz = $('#brushsize').val()
+    
+    if(isNumber(bz))
+      cd.setOption("lineWidth", bz)
+      $('#range').val(bz)
+  )
+
+  #some default values
+  $('#range').val(50)
+  $('#brushsize').val(50)
     
   #mobile warning
   do ->
@@ -148,8 +181,7 @@ $( ->
     reader.readAsDataURL file
     false
   
-  #some default values
-  $('#range').val(50)
+
   
   
   #flash fun

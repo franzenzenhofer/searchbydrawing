@@ -22,6 +22,20 @@
     $('.color').click(function() {
       return cd.setOption("color", '#' + this.getAttribute("data-color"));
     });
+    $('#addcolorbutton').click(function() {
+      var nc, v;
+      v = $('#addcolor').val();
+      if (v && v !== '') {
+        nc = $('<li style="background-color:#' + v + '" data-color="' + v + '" class="color"></li>');
+        nc.click(function() {
+          return cd.setOption("color", '#' + this.getAttribute("data-color"));
+        });
+        $('#colors').prepend(nc);
+        $('#addcolor').css('background-color', '#' + v);
+        return cd.setOption("color", '#' + v);
+      }
+    });
+    $('#brushsizebutton').click(function() {});
     isIApple = function() {
       if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
         return true;
@@ -46,8 +60,22 @@
       }
     })();
     $('#range').change(function() {
-      return cd.setOption("lineWidth", this.value);
+      cd.setOption("lineWidth", this.value);
+      return $('#brushsize').val(this.value);
     });
+    $('#brushsizebutton').click(function() {
+      var bz, isNumber;
+      isNumber = function(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+      };
+      bz = $('#brushsize').val();
+      if (isNumber(bz)) {
+        cd.setOption("lineWidth", bz);
+        return $('#range').val(bz);
+      }
+    });
+    $('#range').val(50);
+    $('#brushsize').val(50);
     (function() {
       if (isMobile()) {
         return $('h1').after('<div class="warning">Device not supported! <b>:(</b></div>\n<div class="note">Sadly, there is a redirect bug on the <b>Google</b> website for mobile decives. On the <b>Google Search by Image</b> page, Google <b><i>redirects mobile devices from the result page to the Google homepage</i></b>, so you can not view the result of your search. Sorry. The bug is already reported to Google. The only workaround is to use a non mobile browser.</div>');
@@ -94,7 +122,6 @@
       reader.readAsDataURL(file);
       return false;
     };
-    $('#range').val(50);
     sCanvas = document.createElement('canvas');
     sCanvas.width = 320;
     sCanvas.height = 240;
